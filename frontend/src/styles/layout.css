@@ -1,0 +1,235 @@
+.page-shell {
+  min-height: 100vh;
+  padding: 1.5rem;
+}
+
+.topbar {
+  display: grid;
+  grid-template-columns: 1.2fr auto auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--panel);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
+}
+
+.topbar h1 {
+  font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+.topbar-nav {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.topbar-nav a {
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  color: var(--muted);
+  transition: all 0.25s ease;
+}
+
+.topbar-nav a.active,
+.topbar-nav a:hover {
+  background: rgba(15, 118, 110, 0.1);
+  color: var(--primary-dark);
+}
+
+.topbar-user {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.topbar-user span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.content-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.panel {
+  position: relative;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--panel);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
+}
+
+.eyebrow {
+  margin-bottom: 0.5rem;
+  color: var(--primary-dark);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.muted-copy {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.primary-button,
+.secondary-button,
+.danger-button,
+.icon-button {
+  border: 0;
+  border-radius: 14px;
+  padding: 0.8rem 1.1rem;
+  transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+}
+
+.primary-button:hover,
+.secondary-button:hover,
+.danger-button:hover,
+.icon-button:hover {
+  transform: translateY(-1px);
+}
+
+.primary-button {
+  color: white;
+  background: linear-gradient(135deg, var(--primary), #0891b2);
+}
+
+.secondary-button {
+  color: var(--text);
+  background: #e8edf5;
+}
+
+.danger-button {
+  color: white;
+  background: linear-gradient(135deg, #dc2626, #f97316);
+}
+
+.icon-button {
+  padding: 0.6rem 0.85rem;
+  color: var(--muted);
+  background: #edf2f7;
+}
+
+.primary-button:disabled,
+.secondary-button:disabled,
+.danger-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.summary-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.12);
+  color: #1d4ed8;
+  font-size: 0.92rem;
+}
+
+.toast-stack {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.toast {
+  min-width: 260px;
+  padding: 0.9rem 1rem;
+  border-radius: 16px;
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.toast-success {
+  background: linear-gradient(135deg, #0f766e, #16a34a);
+}
+
+.toast-error {
+  background: linear-gradient(135deg, #dc2626, #fb7185);
+}
+
+.toast-info {
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+}
+
+.loading-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(6px);
+}
+
+.spinner {
+  width: 44px;
+  height: 44px;
+  border: 4px solid rgba(15, 118, 110, 0.15);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 980px) {
+  .topbar {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar-user {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    padding: 1rem;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .toast-stack {
+    left: 1rem;
+    right: 1rem;
+    top: auto;
+    bottom: 1rem;
+  }
+}

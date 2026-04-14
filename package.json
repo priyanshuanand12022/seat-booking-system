@@ -1,0 +1,12 @@
+{
+  "name": "seat-booking-system",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix backend && npm install --prefix frontend",
+    "dev": "start powershell -NoExit -Command \"cd backend; npm run dev\" && start powershell -NoExit -Command \"cd frontend; npm run dev\"",
+    "backend": "npm --prefix backend run dev",
+    "frontend": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build"
+  }
+}
